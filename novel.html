@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>الرواية | COTE</title>
+  <link rel="icon" href="https://www.google.com/s2/favicons?domain=classroom-of-the-elite.com" type="image/png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg-dark: #0d1b2a;
+      --bg-light: #f7f7f7;
+      --text-light: #e0e1dd;
+      --text-dark: #1b1b1b;
+      --accent: #00b4d8;
+      --card-bg-dark: rgba(27,38,59,0.9);
+      --card-bg-light: #ffffff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-light);
+      transition: background 0.3s, color 0.3s;
+    }
+    body.light-mode {
+      background: var(--bg-light);
+      color: var(--text-dark);
+    }
+    a { text-decoration: none; color: var(--accent); }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: var(--card-bg-dark);
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 1000;
+    }
+    body.light-mode header { background: var(--card-bg-light); }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fff;
+      margin-right: auto;
+    }
+    body.light-mode .logo { color: #000; }
+
+    .menu-toggle {
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #fff;
+      margin-left: auto;
+    }
+    body.light-mode .menu-toggle { color: #000; }
+
+    nav ul {
+      display: none;
+      position: absolute;
+      top: 68px; right: 2rem;
+      flex-direction: column;
+      background: var(--card-bg-dark);
+      padding: 1rem;
+      border-radius: 6px;
+      gap: 1rem;
+      list-style: none;
+      width: 200px;
+    }
+    body.light-mode nav ul { background: var(--card-bg-light); }
+    nav ul.open { display: flex; }
+    nav a:hover { color: #90e0ef; }
+
+    main {
+      padding: 6rem 1rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .year-selector {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .year-selector button {
+      padding: .6rem 1.4rem;
+      border: none;
+      border-radius: 30px;
+      background: var(--card-bg-dark);
+      color: var(--text-light);
+      cursor: pointer;
+    }
+    .year-selector button.active,
+    .year-selector button:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    .volumes {
+      display: none;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .volumes.active {
+      display: flex;
+    }
+
+    .volume {
+      background: var(--card-bg-dark);
+      width: 180px;
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .volume:hover {
+      transform: scale(1.05);
+    }
+    .volume img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      object-position: top;
+    }
+    .volume-title {
+      padding: .5rem;
+      font-weight: bold;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: var(--accent);
+      color: #000;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 999;
+    }
+  </style>
+</head>
+
+
+
+
+
+
+<body>
+  <header>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="logo">COTE | فصل النخبة</div>
+    <nav>
+      <ul id="navLinks">
+        <li><a href="/index.htm">الرئيسية</a></li>
+        <li><a href="#">المانجا</a></li>
+        <li><a href="/novel.html">الرواية</a></li>
+        <li><a href="#">الشخصيات</a></li>
+        <li><a href="#">الأخبار</a></li>
+        <li><a href="#">الأسئلة الشائعة</a></li>
+        <li><a href="#">قصص الفانز</a></li>
+        <li><a href="#">تسجيل الدخول</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1 style="text-align: center; margin-bottom: 1rem;">جميع مجلدات الرواية</h1>
+    <div class="year-selector">
+      <button data-year="year1" class="active">السنة الأولى</button>
+      <button data-year="year2">السنة الثانية</button>
+      <button data-year="year3">السنة الثالثة</button>
+    </div>
+
+   
+    <div id="year1" class="volumes active">
+     
+      <a href="https://drive.google.com/file/d/15es_Qu1LUHDXYO7HF6Ferpeqztmdlra1/view?usp=drivesdk" class="volume" target="_blank">
+        <img src="https://i.postimg.cc/pTXdqPXV/Screenshot-2025-07-03-14-14-19-62-40deb401b9ffe8e1df2f1cc5ba480b12.jpg" alt="مجلد 1">
+        <div class="volume-title">مجلد 1</div>
+      </a>
+
+      <a href="https://drive.google.com/file/d/1jh7Y5w9iePg54h8kqEfY6Ne6SKyojR0g/view?usp=drivesdk" class="volume" target="_blank">
+        <img src="https://i.postimg.cc/NjBL58qr/Screenshot-2025-07-03-14-19-45-68-40deb401b9ffe8e1df2f1cc5ba480b12.jpg" alt="مجلد 4">
+        <div class="volume-title">مجلد 4</div>
+      </a>
+
+
+      <a href="https://drive.google.com/file/d/1LxYLf8zrZAxoAQuPh99Cr7Njm1m0zQHv/view?usp=drivesdk" class="volume" target="_blank">
+        <img src="https://i.postimg.cc/RVMztgh9/Screenshot-2025-07-03-14-23-40-61-40deb401b9ffe8e1df2f1cc5ba480b12.jpg" alt="مجلد 4.5">
+        <div class="volume-title">مجلد 4.5</div>
+      </a>
+
+       <a href="https://drive.google.com/file/d/1khkfejzAg7ELQmzhN1hPejC8kUqRZCfT/view?usp=drivesdk" class="volume" target="_blank">
+        <img src="https://i.postimg.cc/hGFnXc7Z/Screenshot-2025-07-03-14-28-50-63-40deb401b9ffe8e1df2f1cc5ba480b12.jpg" alt="مجلد 5">
+        <div class="volume-title">مجلد 5</div>
+      </a>
+      
+      <a href="https://drive.google.com/file/d/14ZIiIM5RBCAe5CExvfswq7lOtNAMQoWL/view?usp=drivesdk" class="volume" target="_blank">
+        <img src="https://i.postimg.cc/635m3mz1/Screenshot-2025-07-03-14-30-23-09-40deb401b9ffe8e1df2f1cc5ba480b12.jpg" alt="مجلد 6">
+        <div class="volume-title">مجلد 6</div>
+      </a>
+      
+    </div>
+
+    
+    <div id="year2" class="volumes">
+    
+    </div>
+
+<div id="year3" class="volumes">
+  <a href="https://drive.google.com/file/d/1U5PjJWv-RdDZe1AjHltRGHdg8ewW3Eg0/view?usp=drivesdk" class="volume" target="_blank">
+    <img src="https://i.postimg.cc/cHDfjPV2/Screenshot-2025-07-02-23-33-48-34-e2d5b3f32b79de1d45acd1fad96fbb0f.jpg" alt="مجلد 1">
+    <div class="volume-title">مجلد 1</div>
+  </a>
+
+
+</div>
+
+
+
+
+  </main>
+
+  <button class="theme-toggle" onclick="toggleTheme()">الوضع الليلي/الصباحي</button>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+    function toggleTheme() {
+      document.body.classList.toggle('light-mode');
+    }
+
+    const buttons = document.querySelectorAll('.year-selector button');
+    buttons.forEach(btn => btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.volumes').forEach(v => v.classList.remove('active'));
+      document.getElementById(btn.dataset.year).classList.add('active');
+
+}));
+
+ 
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+
+
+  if (localStorage.getItem("theme") === "light") {
+    document.body.classList.add("light-mode");
+  }
+
+  function toggleTheme() {
+    document.body.classList.toggle("light-mode");
+    if (document.body.classList.contains("light-mode")) {
+      localStorage.setItem("theme", "light");
+    } else {
+      localStorage.setItem("theme", "dark");
+    }
+  }
+
+
+
+    
+  </script>
+</body>
+</html>
